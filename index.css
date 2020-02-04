@@ -1,0 +1,64 @@
+* {
+  box-sizing: border-box;
+  font-weight: normal;
+}
+
+.flip {
+  width: 400px;
+}
+
+.flip .front {
+  color: white;
+  width: inherit;
+  background-image: url(https://5b0988e595225.cdn.sohucs.com/images/20190313/678230d657d9478eb3094d2a03b6b6ae.png);
+  background-size: cover;
+  background-position: center;
+  height: 480px;
+  padding: 16px 32px;
+  border-radius: 10px;
+}
+
+.flip .back {
+  color: white;
+  width: inherit;
+  background-size: cover;
+  height: 480px;
+  padding: 16px 32px;
+  border-radius: 10px;
+  background: #313131;
+}
+
+.flip {
+  position: relative;
+}
+
+.front {
+  display: block;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition-duration: 0.5s;
+  transition-property: transform, opacity;
+  transform: rotateY(0deg);
+}
+
+.back {
+  display: block;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition-duration: 0.5s;
+  transition-property: transform, opacity;
+  position: absolute;
+  opacity: 0;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  transform: rotateY(-180deg);
+}
+
+.flip:hover > .front {
+  transform: rotateY(180deg);
+}
+
+.flip:hover > .back {
+  opacity: 1;
+  transform: rotateY(0deg);
+}
